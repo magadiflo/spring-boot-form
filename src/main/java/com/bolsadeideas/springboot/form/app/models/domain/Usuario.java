@@ -4,12 +4,20 @@ import javax.validation.constraints.NotEmpty;
 
 public class Usuario {
 
+	private String identificador;
+
+	@NotEmpty //Para las validaciones en el formulario form.html
+	private String nombre;
+
+	@NotEmpty
+	private String apellido;
+
 	@NotEmpty
 	private String username;
-	
+
 	@NotEmpty
 	private String password;
-	
+
 	@NotEmpty
 	private String email;
 
@@ -37,10 +45,40 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Usuario [username=");
+		builder.append("Usuario [identificador=");
+		builder.append(identificador);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", apellido=");
+		builder.append(apellido);
+		builder.append(", username=");
 		builder.append(username);
 		builder.append(", password=");
 		builder.append(password);
