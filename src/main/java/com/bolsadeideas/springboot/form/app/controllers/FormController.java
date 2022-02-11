@@ -20,7 +20,7 @@ public class FormController {
 	@GetMapping("/form")
 	public String form(Model model) {
 		Usuario usuario = new Usuario();
-		usuario.setIdentificador("123.456.789-M");//Este es un atributo que no está en el formulario, pero es parte del objeto. Este atributo no se perdrá
+		usuario.setIdentificador("23.456.789-M");//Este es un atributo que no está en el formulario, pero es parte del objeto. Este atributo no se perdrá
 		usuario.setNombre("Martín");
 		usuario.setApellido("Díaz");
 		
