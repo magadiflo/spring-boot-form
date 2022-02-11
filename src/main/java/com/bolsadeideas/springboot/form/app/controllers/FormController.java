@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -21,6 +23,11 @@ public class FormController {
 	
 	@Autowired
 	private UsuarioValidador validador;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.addValidators(this.validador);
+	}
 
 	@GetMapping("/form")
 	public String form(Model model) {
@@ -42,7 +49,7 @@ public class FormController {
 	public String procesar(@Valid @ModelAttribute("user") Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 		
 		//Validamos usando la clase validadora
-		this.validador.validate(usuario, result);
+		//this.validador.validate(usuario, result);//Comentado ya que se trabajó arriba con el @InitBinder, por debajo ya trabaja esto
 		
 		model.addAttribute("titulo", "Resultado form");
 		

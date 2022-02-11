@@ -21,7 +21,7 @@ public class UsuarioValidador implements Validator {
 		Usuario usuario = (Usuario)target;
 		
 		//Valida campo "nombre"
-		ValidationUtils.rejectIfEmpty(errors, "nombre", "NotEmpty.user.nombre");//"NotEmpty.user.nombre", está en el archivo de messages.properties
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "requerido.user.nombre");//"NotEmpty.user.nombre", está en el archivo de messages.properties
 		
 		//Verifica patrón del campo "identificador"
 		if(!usuario.getIdentificador().matches("[\\d]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")) {
