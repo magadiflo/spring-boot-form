@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.bolsadeideas.springboot.form.app.validation.IdentificadorRegex;
+import com.bolsadeideas.springboot.form.app.validation.Requerido;
 
 public class Usuario {
 
@@ -18,7 +19,8 @@ public class Usuario {
 	//@NotEmpty(message = "El nombre no puede ser vacío¡¡") //Para las validaciones en el formulario form.html
 	private String nombre;
 
-	@NotEmpty
+	//@NotEmpty
+	@Requerido
 	private String apellido;
 
 	@NotBlank
@@ -28,7 +30,8 @@ public class Usuario {
 	@NotEmpty
 	private String password;
 
-	@NotEmpty
+	//@NotEmpty
+	@Requerido
 	@Email(message = "Correo con formato incorrecto¡¡")
 	private String email;
 
