@@ -1,8 +1,11 @@
 package com.bolsadeideas.springboot.form.app.models.domain;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -11,15 +14,17 @@ import com.bolsadeideas.springboot.form.app.validation.Requerido;
 
 public class Usuario {
 
-	//Serán validados desde la clase personalizada
-	//@Pattern(regexp = "[\\d]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}") //Ejmpl. formato: 23.456.789-M
+	// Serán validados desde la clase personalizada
+	// @Pattern(regexp = "[\\d]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}") //Ejmpl.
+	// formato: 23.456.789-M
 	@IdentificadorRegex
 	private String identificador;
 
-	//@NotEmpty(message = "El nombre no puede ser vacío¡¡") //Para las validaciones en el formulario form.html
+	// @NotEmpty(message = "El nombre no puede ser vacío¡¡") //Para las validaciones
+	// en el formulario form.html
 	private String nombre;
 
-	//@NotEmpty
+	// @NotEmpty
 	@Requerido
 	private String apellido;
 
@@ -30,10 +35,15 @@ public class Usuario {
 	@NotEmpty
 	private String password;
 
-	//@NotEmpty
+	// @NotEmpty //Para tipos String
 	@Requerido
 	@Email(message = "Correo con formato incorrecto¡¡")
 	private String email;
+
+	@NotNull //Para objetos que no sean String. Si es tipo primitivo (int) quitamos este NotNull y solo validamos con Min y Max
+	@Min(5)
+	@Max(5000)
+	private Integer cuenta;
 
 	public String getUsername() {
 		return username;
@@ -83,6 +93,14 @@ public class Usuario {
 		this.identificador = identificador;
 	}
 
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -98,6 +116,8 @@ public class Usuario {
 		builder.append(password);
 		builder.append(", email=");
 		builder.append(email);
+		builder.append(", cuenta=");
+		builder.append(cuenta);
 		builder.append("]");
 		return builder.toString();
 	}
