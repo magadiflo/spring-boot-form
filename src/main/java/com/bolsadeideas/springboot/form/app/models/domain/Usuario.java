@@ -1,5 +1,7 @@
 package com.bolsadeideas.springboot.form.app.models.domain;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -8,6 +10,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.bolsadeideas.springboot.form.app.validation.IdentificadorRegex;
 import com.bolsadeideas.springboot.form.app.validation.Requerido;
@@ -40,10 +44,15 @@ public class Usuario {
 	@Email(message = "Correo con formato incorrecto¡¡")
 	private String email;
 
-	@NotNull //Para objetos que no sean String. Si es tipo primitivo (int) quitamos este NotNull y solo validamos con Min y Max
+	@NotNull // Para objetos que no sean String. Si es tipo primitivo (int) quitamos este
+				// NotNull y solo validamos con Min y Max
 	@Min(5)
 	@Max(5000)
 	private Integer cuenta;
+
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaNacimiento;
 
 	public String getUsername() {
 		return username;
@@ -101,6 +110,14 @@ public class Usuario {
 		this.cuenta = cuenta;
 	}
 
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -118,6 +135,8 @@ public class Usuario {
 		builder.append(email);
 		builder.append(", cuenta=");
 		builder.append(cuenta);
+		builder.append(", fechaNacimiento=");
+		builder.append(fechaNacimiento);
 		builder.append("]");
 		return builder.toString();
 	}
