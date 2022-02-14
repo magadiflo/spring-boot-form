@@ -53,10 +53,13 @@ public class Usuario {
 	private Integer cuenta;
 
 	@NotNull
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Past //Valida que sea una fecha pasada a la actual
-	//@Future //valida que sea una fecha futura
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past // Valida que sea una fecha pasada a la actual
+	// @Future //valida que sea una fecha futura
 	private Date fechaNacimiento;
+
+	@NotEmpty
+	private String pais;
 
 	public String getUsername() {
 		return username;
@@ -122,6 +125,14 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -141,6 +152,8 @@ public class Usuario {
 		builder.append(cuenta);
 		builder.append(", fechaNacimiento=");
 		builder.append(fechaNacimiento);
+		builder.append(", pais=");
+		builder.append(pais);
 		builder.append("]");
 		return builder.toString();
 	}

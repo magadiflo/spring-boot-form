@@ -1,7 +1,9 @@
 package com.bolsadeideas.springboot.form.app.controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -78,5 +80,11 @@ public class FormController {
 		status.setComplete(); 
 		return "resultado";
 	}
+	
+	@ModelAttribute("paises")
+	public List<String> paises() {
+		return Arrays.asList("Argentina", "Perú", "Brasil", "Colombia", "España", "México", "EEUU");
+	}
+	
 
 }
