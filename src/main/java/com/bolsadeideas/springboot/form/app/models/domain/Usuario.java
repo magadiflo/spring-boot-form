@@ -2,7 +2,7 @@ package com.bolsadeideas.springboot.form.app.models.domain;
 
 import java.util.Date;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import javax.validation.constraints.Email;
 //import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
@@ -59,7 +59,8 @@ public class Usuario {
 	// @Future //valida que sea una fecha futura
 	private Date fechaNacimiento;
 
-	@Valid //Le indicamos que también valide este objeto
+	//@Valid //Le indicamos que también valide este objeto
+	@NotNull
 	private Pais pais;
 
 	public String getUsername() {
