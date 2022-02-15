@@ -90,7 +90,7 @@ public class FormController {
 	
 	@ModelAttribute("listaPaises")
 	public List<Pais> listaPaises() {
-		return this.listaPaises();
+		return this.paisService.listar();
 	}
 	
 	@ModelAttribute("paises")
