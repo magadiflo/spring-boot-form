@@ -2,6 +2,7 @@ package com.bolsadeideas.springboot.form.app.models.domain;
 
 import java.util.Date;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 //import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
@@ -58,8 +59,8 @@ public class Usuario {
 	// @Future //valida que sea una fecha futura
 	private Date fechaNacimiento;
 
-	@NotEmpty
-	private String pais;
+	@Valid //Le indicamos que también valide este objeto
+	private Pais pais;
 
 	public String getUsername() {
 		return username;
@@ -125,37 +126,12 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Usuario [identificador=");
-		builder.append(identificador);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", apellido=");
-		builder.append(apellido);
-		builder.append(", username=");
-		builder.append(username);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", cuenta=");
-		builder.append(cuenta);
-		builder.append(", fechaNacimiento=");
-		builder.append(fechaNacimiento);
-		builder.append(", pais=");
-		builder.append(pais);
-		builder.append("]");
-		return builder.toString();
 	}
 
 }
