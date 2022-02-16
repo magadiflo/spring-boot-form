@@ -8,6 +8,9 @@
 	<link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
+	<div class="alert alert-success">
+		<span th:text="'Tiempo transcurrido: ' + ${tiempoTranscurrido} + ' en milisegundos'"></span>
+	</div>
 	<div class="container my-4">
 		<h1 th:text="${titulo}" class="text-center"></h1>
 		
