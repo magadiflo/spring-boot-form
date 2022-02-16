@@ -8,6 +8,7 @@
 	<h3 th:text="${titulo}"></h3>
 	
 	<form th:action="@{/form}" th:object="${user}" method="POST">
+		<input type="hidden" th:field="*{valorSecreto}">
 		<div>
 			<label for="habilitar">Habilitar</label>
 			<div>

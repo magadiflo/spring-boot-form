@@ -22,6 +22,7 @@
 		<li th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></li>
 		<li th:text="${#calendars.format(usuario.fechaNacimiento, 'dd-MM-yyyy')}"></li>
 		<li th:text="${usuario.genero}"></li>
+		<li th:text="${usuario.valorSecreto}"></li>
 	</ul>
 
 	<h3>Roles</h3>
