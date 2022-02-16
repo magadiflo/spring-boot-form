@@ -77,6 +77,7 @@ public class FormController {
 		usuario.setIdentificador("23.456.789-M");//Este es un atributo que no está en el formulario, pero es parte del objeto. Este atributo no se perdrá
 		usuario.setNombre("Martín");
 		usuario.setApellido("Díaz");
+		usuario.setHabilitar(true);
 		
 		model.addAttribute("titulo", "Formulario usuarios");
 		model.addAttribute("user", usuario);

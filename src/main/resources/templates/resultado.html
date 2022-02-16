@@ -8,6 +8,7 @@
 	<h3 th:text="${titulo}"></h3>
 
 	<ul>
+		<li th:text="'¿Habilitado?: ' + ${usuario.habilitar}"></li>
 		<li th:text="${usuario.identificador}"></li>
 		<li th:text="${usuario.nombre}"></li>
 		<li th:text="${usuario.apellido}"></li>
