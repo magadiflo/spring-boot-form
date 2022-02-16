@@ -15,6 +15,18 @@
 			</div>
 		</div>
 		<div>
+			<label>Género</label>
+			<div>
+				<input type="radio" id="genero-hombre" th:field="*{genero}" value="Hombre">
+				<label for="genero-hombre">Hombre</label>
+			</div>
+			<div>
+				<input type="radio" id="genero-mujer" th:field="*{genero}" value="Mujer">
+				<label for="genero-mujer">Mujer</label>
+			</div>
+			<div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></div>
+		</div>
+		<div>
 			<label for="pais">Pais</label>
 			<div>
 				<select id="pais" th:field="*{pais}">
