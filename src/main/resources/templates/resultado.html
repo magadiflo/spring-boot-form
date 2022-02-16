@@ -3,31 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title th:text="${titulo}"></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-	<h3 th:text="${titulo}"></h3>
-
-	<ul>
-	    <li th:text="'¿Habilitado?: ' + ${usuario.habilitar}"></li>
-		<li th:text="${usuario.identificador}"></li>
-		<li th:text="${usuario.nombre}"></li>
-		<li th:text="${usuario.apellido}"></li>
-		<li th:text="${usuario.username}"></li>
-		<li th:text="${usuario.password}"></li>
-		<li th:text="${usuario.email}"></li>
-		<li th:text="${usuario.cuenta}"></li>
-		<li th:text="${usuario.pais.id}"></li>
-		<li th:text="${usuario.pais.codigo}"></li>
-		<li th:text="${usuario.pais.nombre}"></li>
-		<li th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}"></li>
-		<li th:text="${#calendars.format(usuario.fechaNacimiento, 'dd-MM-yyyy')}"></li>
-		<li th:text="${usuario.genero}"></li>
-		<li th:text="${usuario.valorSecreto}"></li>
-	</ul>
-
-	<h3>Roles</h3>
-	<ul>
-		<li th:each="role: ${usuario.roles}" th:text="${role.id} + ': ' + ${role.nombre} + ' => ' + ${role.rol}"></li>
-	</ul>
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h3 th:text="${titulo}" class="text-center"></h3>	
+				<ul  class="list-group">
+				    <li th:text="'¿Habilitado?: ' + ${usuario.habilitar}" class="list-group-item"></li>
+					<li th:text="${usuario.identificador}" class="list-group-item"></li>
+					<li th:text="${usuario.nombre}" class="list-group-item"></li>
+					<li th:text="${usuario.apellido}" class="list-group-item"></li>
+					<li th:text="${usuario.username}" class="list-group-item"></li>
+					<li th:text="${usuario.password}" class="list-group-item"></li>
+					<li th:text="${usuario.email}" class="list-group-item"></li>
+					<li th:text="${usuario.cuenta}" class="list-group-item"></li>
+					<li th:text="${usuario.pais.id}" class="list-group-item"></li>
+					<li th:text="${usuario.pais.codigo}" class="list-group-item"></li>
+					<li th:text="${usuario.pais.nombre}" class="list-group-item"></li>
+					<li th:text="${#dates.format(usuario.fechaNacimiento, 'dd/MM/yyyy')}" class="list-group-item"></li>
+					<li th:text="${#calendars.format(usuario.fechaNacimiento, 'dd-MM-yyyy')}" class="list-group-item"></li>
+					<li th:text="${usuario.genero}" class="list-group-item"></li>
+					<li th:text="${usuario.valorSecreto}" class="list-group-item"></li>
+				</ul>		
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h3 class="text-center">Roles</h3>
+				<ul class="list-group">
+					<li th:each="role: ${usuario.roles}" th:text="${role.id} + ': ' + ${role.nombre} + ' => ' + ${role.rol}" class="list-group-item"></li>
+				</ul>
+			</div>
+		</div>
+		<a th:href="@{/form}" class="btn btn-success mt-3">Volver</a>
+	</div>
+		
 </body>
 </html>
