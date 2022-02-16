@@ -79,6 +79,8 @@ public class FormController {
 		usuario.setApellido("Díaz");
 		usuario.setHabilitar(true);
 		usuario.setValorSecreto("Esto es información secreta");
+		usuario.setPais(new Pais(2, "PE", "Perú"));
+		usuario.setRoles(Arrays.asList(new Role(2, "Usuario", "ROLE_USER"), new Role(3, "Moderador", "ROLE_MODERATOR")));
 		
 		model.addAttribute("titulo", "Formulario usuarios");
 		model.addAttribute("user", usuario);
@@ -113,13 +115,7 @@ public class FormController {
 	public List<String> genero() {
 		return Arrays.asList("Hombre", "Mujer");
 	}
-	
-	
-	@ModelAttribute("listaPaises")
-	public List<Pais> listaPaises() {
-		return this.paisService.listar();
-	}
-	
+
 	@ModelAttribute("listaRolesString")
 	public List<String> listaRolesString() {
 		List<String> roles = new ArrayList<>();
@@ -143,11 +139,15 @@ public class FormController {
 		return this.roleService.listar();
 	}
 	
+	@ModelAttribute("listaPaises")
+	public List<Pais> listaPaises() {
+		return this.paisService.listar();
+	}
+	
 	@ModelAttribute("paises")
 	public List<String> paises() {
 		return Arrays.asList("Argentina", "Perú", "Brasil", "Colombia", "España", "México", "EEUU");
-	}
-	
+	}	
 	
 	@ModelAttribute("paisesMap")
 	public Map<String, String> paisesMap() {

@@ -41,15 +41,7 @@ public class Pais {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Pais [id=");
-		builder.append(id);
-		builder.append(", codigo=");
-		builder.append(codigo);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append("]");
-		return builder.toString();
+		return this.id.toString();
 	}
 
 }
