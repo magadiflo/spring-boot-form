@@ -24,7 +24,7 @@
 
 	<h3>Roles</h3>
 	<ul>
-		<li th:each="role: ${usuario.roles}" th:text="${role}"></li>
+		<li th:each="role: ${usuario.roles}" th:text="${role.id} + ': ' + ${role.nombre} + ' => ' + ${role.rol}"></li>
 	</ul>
 </body>
 </html>
