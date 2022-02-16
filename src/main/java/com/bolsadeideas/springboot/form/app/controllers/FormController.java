@@ -108,6 +108,12 @@ public class FormController {
 		return "resultado";
 	}
 	
+	@ModelAttribute("generos")
+	public List<String> genero() {
+		return Arrays.asList("Hombre", "Mujer");
+	}
+	
+	
 	@ModelAttribute("listaPaises")
 	public List<Pais> listaPaises() {
 		return this.paisService.listar();
